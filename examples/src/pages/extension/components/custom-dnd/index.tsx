@@ -5,14 +5,14 @@ import Dnd from './Dnd';
 const config = {
   stopScrollGraph: true,
   stopZoomGraph: true,
-}
+};
 
 export default function CustomDndExample() {
   useEffect(() => {
     LogicFlow.use(Dnd);
     const lf = new LogicFlow({
       ...config,
-      container: document.querySelector('#graph') as HTMLElement
+      container: document.querySelector('#graph') as HTMLElement,
     });
     lf.render();
   }, []);

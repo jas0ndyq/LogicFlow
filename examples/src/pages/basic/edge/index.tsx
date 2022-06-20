@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import LogicFlow, { EdgeType } from '@logicflow/core';
 import { CurvedEdge } from '@logicflow/extension';
 import ExampleHeader from '../../../components/example-header';
@@ -17,29 +17,32 @@ const data = {
       type: 'rect',
       x: 150,
       y: 100,
-      text: '矩形'
+      text: '矩形',
+      properties: {
+        isOk: false,
+      },
     },
     {
       id: 20,
       type: 'circle',
       x: 400,
       y: 100,
-      text: '圆形'
+      text: '圆形',
     },
     {
       id: 30,
       type: 'diamond',
       x: 300,
       y: 300,
-      text: '菱形'
+      text: '菱形',
     },
     {
       id: 33,
       type: 'diamond',
       x: 600,
       y: 250,
-      text: '菱形2'
-    }
+      text: '菱形2',
+    },
   ],
   edges: [
     {
@@ -50,8 +53,8 @@ const data = {
       startPoint: {
         id: '150-60',
         x: 150,
-        y: 60
-      }
+        y: 60,
+      },
     },
     {
       type: 'line',
@@ -61,8 +64,8 @@ const data = {
       endPoint: {
         id: '150-60',
         x: 350,
-        y: 100
-      }
+        y: 100,
+      },
     },
     {
       type: 'bezier',
@@ -72,16 +75,16 @@ const data = {
       endPoint: {
         id: '150-60',
         x: 300,
-        y: 250
-      }
+        y: 250,
+      },
     },
     {
       type: 'curved-edge',
       sourceNodeId: 30,
       targetNodeId: 33,
       text: '圆角曲线',
-    }
-  ]
+    },
+  ],
 };
 
 export default function EdgeExample() {
@@ -93,7 +96,7 @@ export default function EdgeExample() {
     LogicFlow.use(CurvedEdge);
     const logicflow = new LogicFlow({
       ...config,
-      container: document.querySelector('#graph') as HTMLElement
+      container: document.querySelector('#graph') as HTMLElement,
     });
     logicflow.render(data);
     setLf(logicflow);
@@ -102,8 +105,13 @@ export default function EdgeExample() {
     const logicflow = lf as LogicFlow;
     logicflow.setDefaultEdgeType(type as EdgeType);
     setType(typeName);
-  }
+  };
 
+  const exportData = useCallback(() => {
+    const logicflow = lf as LogicFlow;
+    const graphData = logicflow.getGraphData();
+    console.log(graphData);
+  }, [lf]);
   return (
     <>
       <ExampleHeader
@@ -114,10 +122,15 @@ export default function EdgeExample() {
       <div>
         <button onClick={() => setEdgeType('line', '直线')}>直线</button>
         <button onClick={() => setEdgeType('polyline', '折线')}>折线</button>
-        <button onClick={() => setEdgeType('curved-edge', '圆角折线')}>圆角折线</button>
+        <button onClick={() => setEdgeType('curved-edge', '圆角折线')}>
+          圆角折线
+        </button>
         <button onClick={() => setEdgeType('bezier', '曲线')}>曲线</button>
+      </div>
+      <div>
+        <button onClick={exportData}>check</button>
       </div>
       <div id="graph" className="viewport" />
     </>
-  )
+  );
 }

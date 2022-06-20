@@ -122,7 +122,7 @@
       "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"
     ],
     "testEnvironment": "jsdom",
-    "testRunner": "/Users/syj/project/logic-flow/examples2/node_modules/jest-circus/runner.js",
+    "testRunner": "jest-circus/runner.js",
     "transform": {
       "^.+\\.(js|jsx|mjs|cjs|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
       "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
@@ -161,6 +161,8 @@
     ]
   },
   "devDependencies": {
-    "rimraf": "^3.0.2"
+    "postcss": "^7.0.39",
+    "rimraf": "^3.0.2",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17"
   }
 }

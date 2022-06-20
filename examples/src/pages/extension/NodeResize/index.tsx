@@ -4,13 +4,13 @@ import { NodeResize } from '@logicflow/extension';
 import ExampleHeader from '../../../components/example-header';
 import 'antd/lib/button/style/index.css';
 import StartEvent from './CustomeNode/StartEvent';
-import ExclusiveGateway from './CustomeNode/ExclusiveGateway'; 
+import ExclusiveGateway from './CustomeNode/ExclusiveGateway';
 import UserTask from './CustomeNode/UserTask';
 import './index.css';
 
 const config = {
   background: {
-    color: '#f7f9ff'
+    color: '#f7f9ff',
   },
   grid: {
     type: 'dot',
@@ -18,9 +18,9 @@ const config = {
     visible: false,
   },
   keyboard: {
-    enabled: true
+    enabled: true,
   },
-}
+};
 
 const data = {
   nodes: [
@@ -48,18 +48,17 @@ const data = {
 
 const contentStyle = {
   display: 'flex',
-  alignItems: 'center'
-}
+  alignItems: 'center',
+};
 
 let lf: LogicFlow;
 
 export default function NodeResizeExample() {
-
   useEffect(() => {
     LogicFlow.use(NodeResize);
     lf = new LogicFlow({
       ...config,
-      container: document.querySelector('#graph') as HTMLElement
+      container: document.querySelector('#graph') as HTMLElement,
     });
     // 设置默认样式，主要将outlineColor设置为透明，不再core包中默认的节点外框
     lf.setTheme({
@@ -77,9 +76,9 @@ export default function NodeResizeExample() {
         outlineColor: 'transparent',
       },
     });
-    lf.register(StartEvent);
-    lf.register(ExclusiveGateway);
-    lf.register(UserTask);
+    // lf.register(StartEvent);
+    // lf.register(ExclusiveGateway);
+    // lf.register(UserTask);
     lf.render(data);
     // 节点缩放后更新文案位置
     lf.on('node:resize', (data) => {
@@ -89,13 +88,13 @@ export default function NodeResizeExample() {
         const { ry } = newNodeSize;
         lf.getNodeModelById(id).moveText(0, ry + 10);
       }
-    })
+    });
   }, []);
   const addNode = (type: string) => {
     lf.dnd.startDrag({
       type: type,
     });
-  }
+  };
 
   return (
     <>
@@ -107,14 +106,38 @@ export default function NodeResizeExample() {
       </ExampleHeader>
       <div className="node-resize-list">
         <div>拖拽添加节点</div>
-        <div className="node-resize-custome" onMouseDown={() => addNode('bpmn:userTask')}>用户</div>
-        <div className="node-resize-custome" onMouseDown={() => addNode('bpmn:startEvent')}>开始</div>
-        <div className="node-resize-custome" onMouseDown={() => addNode('bpmn:exclusiveGateway')}>判断</div>
-        <div className="node-resize-rect" onMouseDown={() => addNode('rect')}></div>
-        <div className="node-resize-ellipse" onMouseDown={() => addNode('ellipse')}></div>
-        <div className="node-resize-diamond" onMouseDown={() => addNode('diamond')}></div>
+        <div
+          className="node-resize-custome"
+          onMouseDown={() => addNode('bpmn:userTask')}
+        >
+          用户
+        </div>
+        <div
+          className="node-resize-custome"
+          onMouseDown={() => addNode('bpmn:startEvent')}
+        >
+          开始
+        </div>
+        <div
+          className="node-resize-custome"
+          onMouseDown={() => addNode('bpmn:exclusiveGateway')}
+        >
+          判断
+        </div>
+        <div
+          className="node-resize-rect"
+          onMouseDown={() => addNode('rect')}
+        ></div>
+        <div
+          className="node-resize-ellipse"
+          onMouseDown={() => addNode('ellipse')}
+        ></div>
+        <div
+          className="node-resize-diamond"
+          onMouseDown={() => addNode('diamond')}
+        ></div>
       </div>
       <div id="graph" className="viewport" />
     </>
-  )
+  );
 }

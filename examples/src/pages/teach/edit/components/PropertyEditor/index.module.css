@@ -1,0 +1,27 @@
+.container {
+  width: 300px;
+  box-sizing: border-box;
+  padding: 20px;
+  background-color: #fff;
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  box-shadow: -3px 0px 10px 1px rgba(110, 110, 110, 0.93);
+  transform: translate(310px);
+}
+
+.open {
+  transform: translate(0);
+  transition-timing-function: ease-in-out;
+  transition: all 0.3s;
+}
+
+.close {
+  transition: all 0.3s;
+  transition-timing-function: ease-in-out;
+}
+
+.list_item {
+  margin-bottom: 20px;
+}

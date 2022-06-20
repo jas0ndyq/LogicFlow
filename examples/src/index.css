@@ -1,5 +1,8 @@
-@import '~@logicflow/core/dist/style/index.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+@import '~@logicflow/core/dist/style/index.css';
 
 body {
   margin: 0;

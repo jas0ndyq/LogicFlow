@@ -34,6 +34,7 @@ import BpmnElements from './pages/extension/bpmn/Elements';
 import AdapterExample from './pages/extension/adapter';
 import InserNodeInPolyline from './pages/extension/InserNodeInPolyline';
 
+import TeachEdit from './pages/teach/edit';
 
 export default (
   <Switch>
@@ -47,7 +48,11 @@ export default (
     <Route path="/basic/silent-mode" exact component={Silent} />
     <Route path="/advance/theme" exact component={Theme} />
     <Route path="/advance/event" exact component={Event} />
-    <Route path="/advance/custom-node/style" exact component={CustomNodeStyle} />
+    <Route
+      path="/advance/custom-node/style"
+      exact
+      component={CustomNodeStyle}
+    />
     <Route path="/advance/custom-node/anchor" exact component={Anchor} />
     <Route path="/advance/custom-node/triangle" exact component={Triangle} />
     <Route path="/advance/custom-node/rule" exact component={Rule} />
@@ -60,15 +65,28 @@ export default (
     <Route path="/extension/components/dnd-panel" exact component={DndPanel} />
     <Route path="/extension/components/selection" exact component={Selection} />
     <Route path="/extension/components/mini-map" exact component={MiniMap} />
-    <Route path="/extension/components/custom-menu" exact component={CustomMenu} />
-    <Route path="/extension/components/custom-dnd" exact component={CustomDnd} />
+    <Route
+      path="/extension/components/custom-menu"
+      exact
+      component={CustomMenu}
+    />
+    <Route
+      path="/extension/components/custom-dnd"
+      exact
+      component={CustomDnd}
+    />
     <Route path="/extension/bpmn-elements" exact component={BpmnElements} />
     <Route path="/extension/adapter" exact component={AdapterExample} />
     <Route path="/extension/node-resize" exact component={NodeResizeExample} />
-    <Route path="/extension/InserNodeInPolyline" exact component={InserNodeInPolyline} />
+    <Route
+      path="/extension/InserNodeInPolyline"
+      exact
+      component={InserNodeInPolyline}
+    />
     <Route path="/usage/bpmn" exact component={Bpmn} />
     <Route path="/usage/approve" exact component={Approve} />
     <Route path="/usage/approve/preview" exact component={ApprovePreview} />
+    <Route path="/teach/edit" exact component={TeachEdit} />
     <Route path="/" component={Start} />
   </Switch>
 );

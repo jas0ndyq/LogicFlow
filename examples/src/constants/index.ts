@@ -34,16 +34,18 @@ export const routeMaps: RouteMapsType = {
   '/usage/bpmn': { name: 'Bpmn示例', group: 'usage', hidden: false },
   '/usage/approve': { name: '审批流', group: 'usage', hidden: false },
   '/usage/approve/preview': { name: '预览', group: 'usage', hidden: false },
+  '/teach/edit': { name: '出题', group: 'teach', hidden: false },
   '/': { name: '入门', group: 'root', hidden: false },
 };
 
 type RouteGroupNameMapsType = {[k: string]: string}
 export const routeGroupNameMaps: RouteGroupNameMapsType = {
-	'basic': '基础',
-	'advance': '进阶',
-	'custom-node': '自定义节点',
-	'custom-edge': '自定义连线',
+	// 'basic': '基础',
+	// 'advance': '进阶',
+	// 'custom-node': '自定义节点',
+	// 'custom-edge': '自定义连线',
 	'extension': '拓展',
-	'components': '组件',
+	// 'components': '组件',
 	'usage': '使用',
+  'teach': '教学',
 }

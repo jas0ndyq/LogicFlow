@@ -44,20 +44,22 @@ const genMenus = () => {
     const existIndex = tree.findIndex((it) => it.key === firstNode);
     if (existIndex === -1) {
       const groupName = routeGroupNameMaps[firstNode] ?? '';
-      tree.push({
-        key: firstNode,
-        children: (
-          <SubMenu
-            key={firstNode}
-            title={groupName}
-            children={[
-              <Menu.Item key={path} title={name}>
-                {name}
-              </Menu.Item>,
-            ]}
-          />
-        ),
-      });
+      if (!!groupName) {
+        tree.push({
+          key: firstNode,
+          children: (
+            <SubMenu
+              key={firstNode}
+              title={groupName}
+              children={[
+                <Menu.Item key={path} title={name}>
+                  {name}
+                </Menu.Item>,
+              ]}
+            />
+          ),
+        });
+      }
     } else {
       tree[existIndex].children.props.children.push(
         <Menu.Item key={path} title={name}>
@@ -73,7 +75,7 @@ function App() {
   const history = useHistory();
   const m = genMenus();
   let { search } = useLocation();
-  let isInDoc = search.indexOf('from=doc') !== -1
+  let isInDoc = search.indexOf('from=doc') !== -1;
   const renderNav = () => {
     return (
       <Menu
@@ -88,7 +90,7 @@ function App() {
 
   return (
     <div className="App">
-      { isInDoc ? '' : renderNav()}
+      {isInDoc ? '' : renderNav()}
       <div className="container">{Routes}</div>
     </div>
   );

@@ -952,21 +952,21 @@
     cssnano-preset-default "^4.0.0"
     postcss "^7.0.0"
 
-"@logicflow/core@^1.1.7-alpha.1":
-  version "1.1.7-alpha.1"
-  resolved "https://registry.yarnpkg.com/@logicflow/core/-/core-1.1.7-alpha.1.tgz#9cff5c0da0b69f6a7cb27b9d4a4f24b22131d510"
-  integrity sha512-gMdVbqcveFJFjSiG0q8XjSr8jg+odh6skw9cbyCzlrYFcyiVDcf+rMJa8jI3QdFYR/zm8cZnM+5Iwj7/FH8Qyw==
+"@logicflow/core@^1.2.0-alpha.1", "@logicflow/core@^1.2.0-alpha.11":
+  version "1.2.0-alpha.11"
+  resolved "https://registry.npmmirror.com/@logicflow/core/-/core-1.2.0-alpha.11.tgz#76a4854285ca0b6e148842ad6bccafe1d636aa85"
+  integrity sha512-Ks1yC8D5v5Lgs4ApC4z1UdqMYCRzv+DePhyvT6fpC+yGwdBL1Ww4WjLMbEWozCagMuqQSyZiltFqKVSg/TiJUQ==
   dependencies:
     "@types/mousetrap" "^1.6.4"
     mousetrap "^1.6.5"
     preact "^10.4.8"
 
-"@logicflow/extension@^1.1.7-alpha.1":
-  version "1.1.7-alpha.1"
-  resolved "https://registry.yarnpkg.com/@logicflow/extension/-/extension-1.1.7-alpha.1.tgz#649541937e219b5fb5e81841ef94d1ead107e4e2"
-  integrity sha512-EZoHeetpkvEgVxg4raS+wAv2A8oyaXg5XY0hOeppmXYEpbTZ1Btjhlz9MmyoYwzKkJwke4/zUqpy8FEbDwOEdQ==
+"@logicflow/extension@^1.2.0-alpha.1":
+  version "1.2.0-alpha.11"
+  resolved "https://registry.npmmirror.com/@logicflow/extension/-/extension-1.2.0-alpha.11.tgz#346416a25d807c431cd9f097d4abdb493ad4e0f5"
+  integrity sha512-7Os05fnI2nx7bIpZvVHcpNcn27adgtIXvIgw42Rj6HwhmbX/3d7gemAuqH8OQ46dQhot2YFfBRso5XyW1/ZaTg==
   dependencies:
-    "@logicflow/core" "^1.1.7-alpha.1"
+    "@logicflow/core" "^1.2.0-alpha.11"
     ids "^1.0.0"
     preact "^10.4.8"
 
